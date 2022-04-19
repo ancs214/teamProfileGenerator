@@ -1,7 +1,7 @@
 
 
 const inquirer = require('inquirer');
-const generatePage = require('./src/page-template');
+const generatePage = require('./src/generate-page');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -138,7 +138,6 @@ const promptUser = (userArr) => {
     })
 }
 
-promptUser()
 
 
 let createTeam = function (userArr) {
@@ -152,6 +151,12 @@ let createTeam = function (userArr) {
             employees.push(new Intern (userArr[i].name, userArr[i].ID, userArr[i].email, userArr[i].school));
         }
     }
-    console.log(employees);
+    // console.log(employees);
 }
 
+
+
+promptUser()
+.then(employees => {
+    return generatePage(employees);
+})

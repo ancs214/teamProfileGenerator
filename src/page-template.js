@@ -1,5 +1,4 @@
 
-
 const generateEmployeeCards = userArrData => {
     console.log(userArrData);
 }

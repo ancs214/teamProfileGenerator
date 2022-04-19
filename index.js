@@ -140,13 +140,18 @@ const promptUser = (userArr) => {
 
 promptUser()
 
+
 let createTeam = function (userArr) {
-    userArr.forEach((element) => {
-        // console.log(element.jobTitle);
-        if(element.jobTitle === 'Manager') {
-            addMember = new Manager (userArr);
-            console.log(addMember);
+    for (let i=0; i<userArr.length; i++) {
+        if (userArr[i].jobTitle === 'Manager') {
+            employees.push(new Manager (userArr[i].name, userArr[i].ID, userArr[i].email, userArr[i].officeNum));
+            // console.log(employees);
+        } if (userArr[i].jobTitle === 'Engineer') {
+            employees.push(new Engineer (userArr[i].name, userArr[i].ID, userArr[i].email, userArr[i].github));
+        } if (userArr[i].jobTitle === 'Intern') {
+            employees.push(new Intern (userArr[i].name, userArr[i].ID, userArr[i].email, userArr[i].school));
         }
-    })
+    }
+    console.log(employees);
 }
 

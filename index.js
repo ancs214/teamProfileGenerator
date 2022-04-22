@@ -1,10 +1,11 @@
 
-
+const fs = require('fs');
 const inquirer = require('inquirer');
 const generatePage = require('./src/generate-page');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const { rejects } = require('assert');
 
 let employees = [];
 
@@ -133,12 +134,13 @@ const promptUser = (userArr) => {
         if (data.addTeammate) {
             return promptUser(userArr);
         } else {
-           createTeam(userArr);
+           return createTeam(userArr);
         }
     })
 }
 
 
+// console.log('test here:', employees);
 
 let createTeam = function (userArr) {
     for (let i=0; i<userArr.length; i++) {
@@ -152,11 +154,19 @@ let createTeam = function (userArr) {
         }
     }
     // console.log(employees);
+    let html = generatePage(employees);
+    fs.writeFile('index.html', html, function (err) {
+        if(err) {
+            reject(err);
+            return;
+        }
+    })
 }
 
 
 
 promptUser()
-.then(employees => {
-    return generatePage(employees);
-})
+// .then(employees => {
+//     console.log(employees);
+    // return generatePage(employees);
+//})

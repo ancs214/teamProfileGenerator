@@ -166,7 +166,3 @@ let createTeam = function (userArr) {
 
 
 promptUser()
-// .then(employees => {
-//     console.log(employees);
-    // return generatePage(employees);
-//})

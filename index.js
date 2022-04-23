@@ -140,8 +140,6 @@ const promptUser = (userArr) => {
 }
 
 
-// console.log('test here:', employees);
-
 let createTeam = function (userArr) {
     for (let i=0; i<userArr.length; i++) {
         if (userArr[i].jobTitle === 'Manager') {
@@ -153,9 +151,10 @@ let createTeam = function (userArr) {
             employees.push(new Intern (userArr[i].name, userArr[i].ID, userArr[i].email, userArr[i].school));
         }
     }
+    
     // console.log(employees);
     let html = generatePage(employees);
-    fs.writeFile('index.html', html, function (err) {
+    fs.writeFile('./dist/index.html', html, function (err) {
         if(err) {
             reject(err);
             return;
@@ -166,3 +165,31 @@ let createTeam = function (userArr) {
 
 
 promptUser()
+
+
+const mockData = [
+    {
+      name: 'Ashley',
+      id: '1',
+      email: 'ancs214@gmail.com',
+      officeNumber: '1'
+    },
+    {
+      name: 'Erica',
+      id: '2',
+      email: 'EricaD@gmail.com',
+      github: 'edarr'
+    },
+    {
+      name: 'Jim ',
+      id: '3',
+      email: 'jsand@aol.com',
+      school: 'SOU'
+    },
+    {
+      name: 'Reya',
+      id: '4',
+      email: 'Rdot@yahoo.com',
+      github: 'Rdot'
+    }
+  ];

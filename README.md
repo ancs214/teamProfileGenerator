@@ -22,6 +22,8 @@
   ## Description: 
   A Node.js command line application that takes in information about employees and generates an HTML wepage. This webpage displays summaries for each employee and includes links to their direct email and github profile page (if applicable). 
 
+  Link for video demonstration: https://drive.google.com/file/d/1qIBskUoNg3hATcDrZf_QtawuohR4RCOU/view
+
   ## Installation: 
   Clone or fork the repository to your computer.
 
